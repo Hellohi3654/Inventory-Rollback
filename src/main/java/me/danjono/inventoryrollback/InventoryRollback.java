@@ -2,6 +2,7 @@ package me.danjono.inventoryrollback;
 
 import me.danjono.inventoryrollback.UpdateChecker.UpdateResult;
 import me.danjono.inventoryrollback.commands.Commands;
+import me.danjono.inventoryrollback.commands.CommandsTab;
 import me.danjono.inventoryrollback.config.ConfigFile;
 import me.danjono.inventoryrollback.listeners.ClickGUI;
 import me.danjono.inventoryrollback.listeners.EventLogs;
@@ -39,7 +40,7 @@ public class InventoryRollback extends JavaPlugin {
 
         if (!isCompatible()) {
             logger.log(Level.WARNING, ChatColor.RED + " ** WARNING... Plugin may not be compatible with this version of Minecraft. **");
-            logger.log(Level.WARNING, ChatColor.RED + " ** Tested versions: 1.8.8 to 1.16.3 **");
+            logger.log(Level.WARNING, ChatColor.RED + " ** Tested versions: 1.8.8 to 1.16.4 **");
             logger.log(Level.WARNING, ChatColor.RED + " ** Please fully test the plugin before using on your server as features may be broken. **");
         }
 
@@ -49,6 +50,7 @@ public class InventoryRollback extends JavaPlugin {
             bStats();
         }
         this.getCommand("inventoryrollback").setExecutor(new Commands());
+        this.getCommand("inventoryrollback").setTabCompleter(new CommandsTab());
 
         this.getServer().getPluginManager().registerEvents(new ClickGUI(), instance);
         this.getServer().getPluginManager().registerEvents(new EventLogs(), instance);
@@ -82,7 +84,8 @@ public class InventoryRollback extends JavaPlugin {
         v1_14_R1,
         v1_15_R1,
         V1_16_R1,
-        V1_16_R2
+        V1_16_R2,
+        V1_16_R3,
     }
 
     public enum VersionName {

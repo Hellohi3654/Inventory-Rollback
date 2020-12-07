@@ -7,6 +7,8 @@
 .project
 
 #Intellij
-.idea/**
 .settings/**
 *.iml
+.idea
+/out/
+/InventoryRollback.iml
