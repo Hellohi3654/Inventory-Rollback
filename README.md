@@ -1,34 +1,64 @@
-![](https://i.imgur.com/KmwQQoi.png)
-# Inventory Rollback
+![](https://github.com/TechnicallyCoded/Inventory-Rollback/blob/master/icons/inventoryrollbackplus_icon_128.png?raw=true)
+# InventoryRollbackPlus
 
-### Minecraft Bukkit Plugin - Tested with versions 1.8.8 - 1.16.3
+***WARNING***: This plugin is open source but NOT free to use as you wish. Read the [LICENSE](https://github.com/TechnicallyCoded/Inventory-Rollback/blob/master/LICENSE) before downloading this code.
+*(If I choose to stop maintaining this plugin, the LICENSE may change to allow further development, but that is not a guarantee and will not happen anytime soon since I am still actively developing this plugin)*
 
-This plugin will log a players' inventory, health, hunger, experience, and ender chest during certain events. Perfect if someone loses their gear because of an admin mishap or if a bad plugin accidentally wipes a players data for example! These logged events include:-  
+### Introduction
 
--   Player death
--   Player joining the server
--   Player disconnecting from the server
--   Player changing worlds
+**Description**
 
-Staff with the required permission can open a GUI and select the required backup for the player. They can then click and drag the items the player requires off the GUI so they can pick them up. Clicking on the other icons enables you to restore the other attributes if required directly to the player.  
-  
-By default, it will log 50 deaths and 10 joins, disconnects, world changes and force saves each per player before the old data is purged to save space. These values can be changed in the config.  
-  
-**If upgrading a current server from before 1.13 you will need to delete all your backup data due to the changes with materials in the newest versions.**
+InventoryRollbackPlus is a plugin which will backup player inventories for various events. This is very useful if players lose items due to lag, griefing and more!
 
-## Commands
-/ir restore %**PLAYERNAME**% - Opens a GUI to select the backup you require.  
-/ir forcebackup %**PLAYERNAME**% - Forces a backup for an online player.  
+**When does the plugin backup player inventories?**
 
-## Permissions
+When the a player: Joins, Leaves, Dies, Changes world, or when requested by staff.
 
-inventoryrollback.restore - Allows access to */ir restore* (Default: OP)  
-inventoryrollback.forcebackup - Allows access to */ir forcebackup* (Default: OP)  
+**What does the plugin save?**
 
-inventoryrollback.deathsave - Saves inventory on a player death. (Default: All)  
-inventoryrollback.joinsave - Saves inventory on joining the server. (Default: All)  
-inventoryrollback.leavesave - Saves inventory on leaving the server. (Default: All)  
-inventoryrollback.worldchangesave  - Saves inventory when changing to a different world. (Default: All)  
+The plugin saves the player's: Inventory, Enderchest, Location, Health, Hunger, XP.
+
+*Note: This plugin is a fork (extended version) of InventoryRollback but with more features and faster updates.*
+
+**Why should you I use this version?**
+
+There are many core features missing from the original plugin. Here are some of the features in this version that are not present in the original:
+ - Tab completion for commands
+ - Single button click to restore the entire inventory
+ - Help message if you run /inventoryrollback without anything else
+ - & more coming soon..
+
+**How do I use the plugin?**
+
+When a backup is created, it is added to a list of available backups to view and restore.
+
+Players with the required permission can open a rollback menu by running the command /ir restore <name>. You will be presented will all the recent backups the plugin has made. To view a backup just click on the corresponding icon. You can now choose to restore what you want or go back to the list of backups.
+
+The plugin saves 50 deaths and 10 joins, leaves and world changes by deafult. New deaths, joins, leaves and world changes will push old backups into deleted space :O
+You can change these values in the configuration file.
+
+### Documentation
+
+**Commands**
+
+ - /ir restore <player> - Open a menu to view all player backups
+ - /ir forcebackup <player> - Create a backup manually
+ - /ir enable - Enable the plugin if disabled
+ - /ir disable - Disable the plugin if enabled
+ - /ir reload - Reload the configuration file
+
+**Permissions**
+
+ - inventoryrollback.restore - (Default: OP) Allow /ir restore command
+ - inventoryrollback.forcebackup - (Default: OP) Allow /ir forcebackup command
+ - inventoryrollback.enable - (Default: OP) Allow /ir enable command
+ - inventoryrollback.disable - (Default: OP) Allow /ir disable command
+ - inventoryrollback.reload - (Default: OP) Allow /ir reload command
+
+ - inventoryrollback.deathsave - (Default: All) Allow backup on death
+ - inventoryrollback.joinsave - (Default: All) Allow backup on join
+ - inventoryrollback.leavesave - (Default: All) Allow backup on leave
+ - inventoryrollback.worldchangesave - (Default: All) Allow backup on world change
 
 ## Spigot Link
-[https://www.spigotmc.org/resources/inventory-rollback.48074/](https://www.spigotmc.org/resources/inventory-rollback.48074/)
+[https://www.spigotmc.org/resources/inventoryrollbackplus-1-8-1-16-x.85811/](https://www.spigotmc.org/resources/inventoryrollbackplus-1-8-1-16-x.85811/)
